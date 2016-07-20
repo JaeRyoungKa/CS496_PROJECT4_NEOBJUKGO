@@ -34,7 +34,7 @@ public class StuffCreatureZakum extends StuffCreatureMob {
             case 8 : prefix2 = "매우 튼튼한"; break;
             case 9 : prefix2 = "매우 강인한"; break;
         }
-        this.name = prefix1+" "+prefix2+" 슬라임";
+        this.name = prefix1+" "+prefix2+" 자쿰";
     }
 
     @Override
