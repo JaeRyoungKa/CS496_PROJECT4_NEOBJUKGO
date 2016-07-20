@@ -1,6 +1,7 @@
 package com.example.q.neobjukgo;
 
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * Created by q on 2016-07-20.
@@ -8,6 +9,7 @@ import java.util.Iterator;
 public class Map {
 
     private boolean flag;
+    Random random = new Random();
 
     public enum Direction {
         UP(0, -1), DOWN(0, 1), RIGHT(1, 0), LEFT(-1, 0);
@@ -98,8 +100,34 @@ public class Map {
         // Mob Generation
         if (!flag) {
             flag = true;
-            Stuff a = new StuffCreatureSlime(10,1,0);
-            putStuffAt(a,0,7);
+
+            for (int i = 0 ; i < 5; i++) {
+                int x = random.nextInt(4);
+                int y = random.nextInt(10);
+                int att = random.nextInt(7); // slime att
+                int def = random.nextInt(6); // slime def
+                Stuff a = new StuffCreatureSlime(10,att,def);
+                if (rooms[y][x] != null) putStuffAt(a,x,y);
+            }
+
+            for (int i = 0 ; i < 5; i++) {
+                int x = random.nextInt(4);
+                int y = random.nextInt(10);
+                int att = random.nextInt(9); // slime att
+                int def = random.nextInt(4); // slime def
+                Stuff a = new StuffCreatureWolf(10,att,def);
+                if (rooms[y][x] != null) putStuffAt(a,x,y);
+            }
+
+            for (int i = 0 ; i < 5; i++) {
+                int x = random.nextInt(4);
+                int y = random.nextInt(10);
+                int att = random.nextInt(4); // slime att
+                int def = random.nextInt(9); // slime def
+                Stuff a = new StuffCreatureZakum(10,att,def);
+                if (rooms[y][x] != null) putStuffAt(a,x,y);
+            }
+
         }
     }
 

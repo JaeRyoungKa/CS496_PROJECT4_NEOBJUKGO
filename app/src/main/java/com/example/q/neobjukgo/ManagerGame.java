@@ -21,7 +21,7 @@ public class ManagerGame {
 
     private ManagerGame() {
         map = new Map();
-        player = new StuffCreaturePlayer(10,1,1);
+        player = new StuffCreaturePlayer(30);
         map.putStuffAt(player,0,0);
         ManagerPosition.getInstance().registerMap(map);
         new TimerTask().execute();

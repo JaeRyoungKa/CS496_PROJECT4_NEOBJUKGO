@@ -46,7 +46,7 @@ public class StuffCreatureMob extends StuffCreature {
     public String toString() {
         String prefix1 = null;
         String prefix2 = null;
-        switch ((int) this.attack/10) { // TODO : fix this if needed
+        switch ((int) this.attack) { // TODO : fix this if needed
             case 0 : prefix1 = "무해하고"; break;
             case 1 : prefix1 = "연약하고"; break;
             case 2 : prefix1 = "손쉽고"; break;
@@ -58,7 +58,7 @@ public class StuffCreatureMob extends StuffCreature {
             case 8 : prefix1 = "치명적이고"; break;
             case 9 : prefix1 = "막을수없고"; break;
         }
-        switch ((int) this.armor/10) { // TODO : fix this if needed
+        switch ((int) this.armor) { // TODO : fix this if needed
             case 0 : prefix2 = "유리같은"; break;
             case 1 : prefix2 = "취약한"; break;
             case 2 : prefix2 = "벌거벗은"; break;
