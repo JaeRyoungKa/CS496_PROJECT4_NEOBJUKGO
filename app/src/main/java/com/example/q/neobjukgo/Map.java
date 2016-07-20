@@ -38,14 +38,12 @@ public class Map {
     }
 
     public void putStuffAt(Stuff s, int x, int y) {
-        rooms[y][x].add(s);
-        s.setRoom(rooms[y][x]);
+        rooms[y][x].putStuff(s);
     }
 
     public void moveStuffTo(Stuff s, int x, int y) {
         s.getRoom().remove(s);
-        rooms[y][x].add(s);
-        s.setRoom(rooms[y][x]);
+        rooms[y][x].putStuff(s);
     }
 
     private void initializeMap() {

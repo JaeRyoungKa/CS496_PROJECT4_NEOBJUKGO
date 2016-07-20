@@ -54,7 +54,7 @@ public class MapView extends View {
 
             p.setColor(Color.BLACK);
             for (int j = 0; j < i.getStuffs().size(); j++) {
-                String text = i.getStuffs().get(j).toString();
+                String text = i.getStuffs().get(j).toStringRender();
                 p.setTextSize(30);
                 canvas.drawText(text,0,text.length(),offX+i.getX()*LENGTH,offY+(j+1)*30+i.getY()*LENGTH,p);
             }

@@ -31,4 +31,9 @@ public class StuffItemWeapon extends StuffItem {
         }
         return prefix+" "+"무기";
     }
+
+    @Override
+    public String toStringRender() {
+        return toString();
+    }
 }

@@ -17,4 +17,8 @@ public class StuffItem extends  Stuff {
         this.item_performance = random.nextInt(10);
     }
 
+    public String toStringRender() {
+        return "Unknown Item";
+    }
+
 }

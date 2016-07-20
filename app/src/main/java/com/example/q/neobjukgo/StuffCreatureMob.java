@@ -27,10 +27,11 @@ public class StuffCreatureMob extends StuffCreature {
 
     @Override
     protected void onDeath() {
-        StuffItem droppeditem = new StuffItem();
-        getRoom().add(droppeditem);
+        StuffItemWeapon drop = new StuffItemWeapon();
+
+        getRoom().putStuff(drop);
         ManagerLogger.getInstance().log(toString()+"이(가) 죽었습니다.");
-        ManagerLogger.getInstance().log(droppeditem.toString()+"이(가) 드롭되었습니다.");
+        ManagerLogger.getInstance().log(drop.toString()+"이(가) 드롭되었습니다.");
         getRoom().remove(this);
     }
 
@@ -41,6 +42,10 @@ public class StuffCreatureMob extends StuffCreature {
             if (things instanceof StuffCreatureMob) flag = true;
         }
         if (!flag) this.moveTo(dir);
+    }
+
+    public String toStringRender() {
+        return name;
     }
 
     public String toString() {

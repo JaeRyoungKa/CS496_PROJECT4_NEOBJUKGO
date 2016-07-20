@@ -31,8 +31,8 @@ public class StuffCreature extends Stuff {
         double DMGDealt = (this.getAttack() - target.getArmor());
         this.health -= HPLost;
         target.health -= DMGDealt;
-        ManagerLogger.getInstance().log(target.toString()+"에게"+HPLost+"의 피해를 입었습니다.");
-        ManagerLogger.getInstance().log(target.toString()+"에게"+DMGDealt+"의 피해를 입혔습니다.");
+        ManagerLogger.getInstance().log(target.toString()+"(으)로부터 "+HPLost+"의 피해를 입었습니다.");
+        ManagerLogger.getInstance().log(target.toString()+"에게 "+DMGDealt+"의 피해를 입혔습니다.");
         if (target.health <= 0) target.onDeath();
         if (this.health <= 0) this.onDeath();
     }

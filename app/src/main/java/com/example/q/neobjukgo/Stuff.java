@@ -22,4 +22,8 @@ public class Stuff {
         return room;
     }
 
+    public String toStringRender() {
+        return "Unknown Stuff";
+    }
+
 }

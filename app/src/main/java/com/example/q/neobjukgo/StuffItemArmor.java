@@ -33,4 +33,9 @@ public class StuffItemArmor extends StuffItem {
         }
         return prefix+" "+"방어구";
     }
+
+    @Override
+    public String toStringRender() {
+        return toString();
+    }
 }

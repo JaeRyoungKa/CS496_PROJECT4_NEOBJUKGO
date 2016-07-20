@@ -33,6 +33,15 @@ public class Room {
         return map.getRoomAt(x, y);
     }
 
+    public void putStuff(Stuff s) {
+        this.add(s);
+        s.setRoom(this);
+    }
+
+    public boolean has(Stuff s) {
+        return stuffs.contains(s);
+    }
+
     public void remove(Stuff s) {
         requests.addLast(new Request(false, s));
     }

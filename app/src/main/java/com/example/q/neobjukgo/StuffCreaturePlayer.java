@@ -7,13 +7,15 @@ import java.util.ArrayList;
  */
 public class StuffCreaturePlayer extends StuffCreature {
 
-    protected ArrayList<StuffItem> inventory;
-    protected StuffItemWeapon weapon;
-    protected StuffItemArmor armor;
+    private ArrayList<StuffItem> inventory;
+    private StuffItemWeapon weapon;
+    private StuffItemArmor armor;
 
     public StuffCreaturePlayer (double health) {
         super(health);
         this.inventory = new ArrayList<>();
+        this.weapon = new StuffItemWeapon(1);
+        this.armor = new StuffItemArmor(1);
     }
 
     @Override
@@ -36,4 +38,27 @@ public class StuffCreaturePlayer extends StuffCreature {
     public String toString() {
         return "플레이어";
     }
+
+    public String toStringRender() {
+        return "플레이어";
+    }
+
+    public void pickUpItem(StuffItem item) {
+        if (item.getRoom().has(item)) {
+            item.getRoom().remove(item);
+            this.inventory.add(item);
+        }
+    }
+
+    public void dropItem(StuffItem item) {
+        if (this.inventory.contains(item)) {
+            item.getRoom().remove(item);
+            this.inventory.add(item);
+        }
+    }
+
+    public ArrayList<StuffItem> getInventory() {
+        return inventory;
+    }
+
 }
