@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void onFight() {
-        int temp2 = ATT/2+getRandom(11,1);
+        int temp2 = ATT/2+getRandom(9,1);
         if (temp2 < 0) temp2 = 0;
         HP -= temp2;
         int temp = getRandom(15,1);
