@@ -94,7 +94,7 @@ public class Map {
             Room i = iter.next();
             i.onUpdate();
         }
-        double rand = Math.random()*0.5;
+        double rand = Math.random()*0.25;
         if (ManagerGame.getInstance().getTurn() <= 240) {
             if (rand < 0.0125) {
                 Room room =iter.getRandom();

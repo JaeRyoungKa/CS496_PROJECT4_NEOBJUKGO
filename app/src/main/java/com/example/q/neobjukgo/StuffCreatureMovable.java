@@ -39,13 +39,13 @@ public class StuffCreatureMovable extends StuffCreatureMob {
                     this.moveTo(i);
                 }
             }
-        }
-
-        // attacking part
-        Room i = room.getRoom();
-        for (Object things : i.getStuffs()) {
-            if (things instanceof StuffCreaturePlayer) {
-                this.attack(((StuffCreaturePlayer) things));
+        } else {
+            // attacking part
+            Room i = room.getRoom();
+            for (Object things : i.getStuffs()) {
+                if (things instanceof StuffCreaturePlayer) {
+                    this.attack(((StuffCreaturePlayer) things));
+                }
             }
         }
     }
