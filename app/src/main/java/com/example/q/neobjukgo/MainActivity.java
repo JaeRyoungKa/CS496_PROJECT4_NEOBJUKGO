@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ((Button)findViewById(R.id.button_S)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, ActivityStatus.class);
+                startActivity(i);
+            }
+        });
+
         ManagerPosition.getInstance().registerWIFI(initializeWIFI());
     }
 
