@@ -11,13 +11,13 @@ public class StuffItemWeapon extends StuffItem {
 
     public StuffItemWeapon() {
         super (0);
-        this.item_performance = random.nextInt(10);
+        this.rank = random.nextInt(10);
     }
 
     @Override
     public String toString() {
         String prefix = "";
-        switch (this.item_performance) {
+        switch (this.rank) {
             case 0 : prefix = "망가진"; break;
             case 1 : prefix = "녹슨"; break;
             case 2 : prefix = "허름한"; break;
@@ -33,7 +33,7 @@ public class StuffItemWeapon extends StuffItem {
             case 12 : prefix = "전설의"; break;
             case 13 : prefix = "악마가 가진"; break;
             case 14 : prefix = "신이 가진"; break;
-            default: prefix = "+" + this.item_performance; break;
+            default: prefix = "+" + this.rank; break;
         }
         return prefix+" "+"무기";
     }

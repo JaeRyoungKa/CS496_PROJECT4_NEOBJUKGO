@@ -15,9 +15,15 @@ public class ActivityStatus extends AppCompatActivity {
         TextView Armor = (TextView) findViewById(R.id.Armor);
         TextView Stat = (TextView) findViewById(R.id.stat);
         TextView Turn = (TextView) findViewById(R.id.turnnum);
-        HP.setText((int) ManagerGame.getInstance().getPlayer().getHP()+" / 30");
-        Weapon.setText(ManagerGame.getInstance().getPlayer().getItemWeapon().toString());
-        Armor.setText(ManagerGame.getInstance().getPlayer().getItemArmor().toString());
+        HP.setText((int) (ManagerGame.getInstance().getPlayer().getHP()*10)/10.0+" / 30");
+        if (ManagerGame.getInstance().getPlayer().getItemWeapon() != null)
+            Weapon.setText(ManagerGame.getInstance().getPlayer().getItemWeapon().toString());
+        else
+            Weapon.setText("없음");
+        if (ManagerGame.getInstance().getPlayer().getItemArmor() != null)
+            Armor.setText(ManagerGame.getInstance().getPlayer().getItemArmor().toString());
+        else
+            Armor.setText("없음");
         Stat.setText(ManagerGame.getInstance().getPlayer().getAttack()+" / "+ManagerGame.getInstance().getPlayer().getArmor());
         Turn.setText(Integer.toString(ManagerGame.getInstance().getTurn()));
     }

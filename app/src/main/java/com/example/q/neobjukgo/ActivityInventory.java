@@ -51,8 +51,21 @@ public class ActivityInventory extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 StuffItem item = (StuffItem)adapterView.getItemAtPosition(i);
-                adapterInv.add(ManagerGame.getInstance().getPlayer().equipItem(item));
+                StuffItem returned = ManagerGame.getInstance().getPlayer().equipItem(item);
+                if (returned != null)
+                    adapterInv.add(returned);
                 adapterInv.remove(item);
+            }
+        });
+        invView.setOnItemLongClickListener(new ListView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                StuffItem item = (StuffItem)adapterView.getItemAtPosition(i);
+                ManagerGame.getInstance().getPlayer().dropItem(item);
+                adapterInv.remove(item);
+                adapterField.add(item);
+                return true;
             }
         });
     }

@@ -1,11 +1,14 @@
 package com.example.q.neobjukgo;
 
+import java.util.Random;
+
 /**
  * Created by q on 2016-07-20.
  */
 public class Stuff {
 
     protected Room room;
+    protected Random random = new Random();
 
     public Stuff() {
     }

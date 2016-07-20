@@ -91,8 +91,6 @@ public class ManagerPosition {
                 conn.setFixedLengthStreamingMode(len);
                 os = conn.getOutputStream();
                 OutputStreamWriter wrt = new OutputStreamWriter(os, "UTF-8");
-                Log.i("LogCat", "[SEND]ENCODING: " + wrt.getEncoding());
-                Log.i("LogCat", "[SEND]JSON RAW: " + jobj.toString());
                 wrt.write(jobj.toString());
                 wrt.flush();
                 conn.connect();
@@ -101,7 +99,6 @@ public class ManagerPosition {
                 //int zone = StreamHelper.readInt(is);
                 int zone = 0;
                 String res = StreamHelper.readIt(is);
-                Log.i("LogCat", "[SEND]RESPOND : " + res);
                 os.close();
                 is.close();
                 return Integer.parseInt(res);

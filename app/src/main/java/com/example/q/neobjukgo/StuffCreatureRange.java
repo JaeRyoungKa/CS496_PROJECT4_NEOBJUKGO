@@ -50,8 +50,6 @@ public class StuffCreatureRange extends StuffCreatureMob {
                 }
                 iRoom = iRoom.getRoom(i);
             }
-
-
         }
     }
 }

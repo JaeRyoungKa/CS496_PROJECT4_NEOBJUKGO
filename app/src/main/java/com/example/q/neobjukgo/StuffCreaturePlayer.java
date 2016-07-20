@@ -1,11 +1,5 @@
 package com.example.q.neobjukgo;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-
 import java.util.ArrayList;
 
 /**
@@ -25,12 +19,12 @@ public class StuffCreaturePlayer extends StuffCreature {
     @Override
     public double getAttack() {
         if (weapon==null) return 0;
-        return weapon.item_performance;
+        return weapon.rank;
     }
     @Override
     public double getArmor() {
         if (armor==null) return 0;
-        return armor.item_performance;
+        return armor.rank;
     }
 
     public StuffItemArmor getItemArmor() {
@@ -50,20 +44,32 @@ public class StuffCreaturePlayer extends StuffCreature {
             return equipItem((StuffItemWeapon)item);
         if (item instanceof  StuffItemArmor)
             return equipItem((StuffItemArmor)item);
+        if (item instanceof  StuffItemPotion)
+            return equipItem((StuffItemPotion)item);
+        return null;
+    }
+
+    public StuffItem equipItem(StuffItemPotion item) {
+        inventory.remove(item);
+        heal(item.getHeal());
         return null;
     }
 
     public StuffItem equipItem(StuffItemWeapon item) {
         StuffItem temp = weapon;
         weapon=item;
-        inventory.add(temp);
+        if (temp!=null)
+            inventory.add(temp);
+        inventory.remove(weapon);
         return temp;
     }
 
     public StuffItem equipItem(StuffItemArmor item) {
         StuffItem temp = armor;
         armor=item;
-        inventory.add(temp);
+        if (temp!=null)
+            inventory.add(temp);
+        inventory.remove(armor);
         return temp;
     }
 
@@ -115,8 +121,11 @@ public class StuffCreaturePlayer extends StuffCreature {
                 break;
             }
         }
-        health+=0.1;
+        heal(0.1);
+    }
 
-
+    public void heal(double amount) {
+        health+=amount;
+        health = Math.min(30,health);
     }
 }

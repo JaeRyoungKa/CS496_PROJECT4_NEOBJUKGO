@@ -8,7 +8,6 @@ import java.util.Random;
 public class StuffCreature extends Stuff {
 
     protected double health;
-    protected Random random = new Random();
 
     public StuffCreature(double health) {
         this.health = health;
