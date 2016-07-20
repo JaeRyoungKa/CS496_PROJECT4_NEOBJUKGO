@@ -39,7 +39,6 @@ public class StuffCreature extends Stuff {
             target.health -= damage;
             ManagerLogger.getInstance().log(this.toString()+"(이)가 " + target.toString() + " 에게 "+((int)(10*damage))/10.0+"의 피해를 입혔습니다.");
             if (target.health <= 0) target.onDeath();
-            if (this.health <= 0) this.onDeath();
         }
     }
 

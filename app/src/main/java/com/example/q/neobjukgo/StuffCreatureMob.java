@@ -46,12 +46,12 @@ public class StuffCreatureMob extends StuffCreature {
         for (int i = 0 ; i < fortune; i++) {
             if (random.nextInt(4) == 0) {
                 if (random.nextInt(2) == 0) {
-                    StuffItem droppeditem = new StuffItemArmor(random.nextInt((int) Math.min(10, attack + 2)));
+                    StuffItem droppeditem = new StuffItemArmor(random.nextInt((int)attack + 2));
                     getRoom().putStuff(droppeditem);
                     ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
                 }
                 if (random.nextInt(2) == 0) {
-                    StuffItem droppeditem = new StuffItemWeapon(random.nextInt((int) Math.min(10, armor + 2)));
+                    StuffItem droppeditem = new StuffItemWeapon(random.nextInt((int)armor + 2));
                     getRoom().putStuff(droppeditem);
                     ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
                 }

@@ -79,8 +79,8 @@ public class StuffCreaturePlayer extends StuffCreature {
 
     public void dropItem(StuffItem item) {
         if (this.inventory.contains(item)) {
-            item.getRoom().remove(item);
-            this.inventory.add(item);
+            this.inventory.remove(item);
+            getRoom().putStuff(item);
         }
     }
 
