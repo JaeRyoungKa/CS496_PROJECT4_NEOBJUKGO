@@ -19,9 +19,10 @@ public class StuffCreatureMob extends StuffCreature {
         this.armor = armor;
         this.name = name;
         this.prefix = prefix;
+        this.fortune = 1;
     }
 
-    public StuffCreatureMob(double health, double attack, double armor, int fortune,String name, String prefix) {
+    public StuffCreatureMob(double health, double attack, double armor, int fortune, String name, String prefix) {
         super(health);
         this.attack = attack;
         this.armor = armor;
@@ -42,7 +43,7 @@ public class StuffCreatureMob extends StuffCreature {
     @Override
     protected void onDeath() {
         ManagerLogger.getInstance().log(toString()+"이(가) 죽었습니다.");
-        for (int i = 0 ; i < fortune; i ++) {
+        for (int i = 0 ; i < fortune; i++) {
             if (random.nextInt(5) == 0) {
                 if (random.nextInt(2) == 0) {
                     StuffItem droppeditem = new StuffItemArmor(random.nextInt((int) Math.max(10, attack + 2)));
@@ -57,15 +58,6 @@ public class StuffCreatureMob extends StuffCreature {
             }
         }
         getRoom().remove(this);
-    }
-
-    protected void move(Map.Direction dir) {
-        Room i = room.getRoom(dir);
-        boolean flag = false;
-        for (Object things : i.getStuffs()) {
-            if (things instanceof StuffCreatureMob) flag = true;
-        }
-        if (!flag) this.moveTo(dir);
     }
 
     public String toStringRender() {

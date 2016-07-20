@@ -7,7 +7,6 @@ import java.util.Random;
  */
 public class StuffCreature extends Stuff {
 
-
     protected double health;
     protected Random random = new Random();
 
@@ -30,7 +29,8 @@ public class StuffCreature extends Stuff {
     }
 
     public void moveTo(Map.Direction dir) {
-
+        getRoom().remove(this);
+        getRoom().getRoom(dir).putStuff(this);
     }
 
     public void attack(StuffCreature target) {

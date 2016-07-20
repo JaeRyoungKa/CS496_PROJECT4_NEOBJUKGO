@@ -1,5 +1,7 @@
 package com.example.q.neobjukgo;
 
+import android.util.Log;
+
 import java.util.Random;
 
 /**
@@ -33,8 +35,9 @@ public class StuffCreatureMovable extends StuffCreatureMob {
             int curIndex = 0;
             for (Map.Direction i : Map.Direction.values()) {
                 Room iRoom = getRoom().getRoom(i);
-                if (iRoom !=  null && curIndex++==value)
-                    this.move(i);
+                if (iRoom !=  null && (curIndex++)==value) {
+                    this.moveTo(i);
+                }
             }
         }
 

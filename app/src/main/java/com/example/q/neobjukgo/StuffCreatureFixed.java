@@ -33,7 +33,7 @@ public class StuffCreatureFixed extends StuffCreatureMob {
             for (Map.Direction i : Map.Direction.values()) {
                 Room iRoom = getRoom().getRoom(i);
                 if (iRoom !=  null && curIndex++==value)
-                    this.move(i);
+                    this.moveTo(i);
             }
         }
 

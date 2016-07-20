@@ -100,26 +100,26 @@ public class Map {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable("재빠른", "슬라임",8,1+att,1+def, 2, 0.18);
+                Stuff a = new StuffCreatureMovable("재빠른", "슬라임",8,1+att,1+def, 2, 0.2);
                 putStuffAt(a,room.getX(),room.getY());
             } else if (rand < 0.05) {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable("맷집좋은", "슬라임",16,1+att,1+def, 2,0.6);
+                Stuff a = new StuffCreatureMovable("맷집좋은", "슬라임",16,1+att,1+def, 2, 0.1);
                 putStuffAt(a,room.getX(),room.getY());
             } else if (rand < 0.075) {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable("산성", "슬라임",8,3+att,def, 2,0.6);
+                Stuff a = new StuffCreatureMovable("산성", "슬라임",8,3+att,def, 2, 0.1);
                 putStuffAt(a,room.getX(),room.getY());
             }
             else if (rand < 0.15) {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable(null, "슬라임",8,1+att,1+def,0.6);
+                Stuff a = new StuffCreatureMovable(null, "슬라임",8,1+att,1+def, 0.1);
                 putStuffAt(a,room.getX(),room.getY());
             }
         } else if (ManagerGame.getInstance().getTurn() <= 240) {
@@ -127,19 +127,19 @@ public class Map {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable("재빠른", "슬라임",8,1+att,1+def,0.18);
+                Stuff a = new StuffCreatureMovable("재빠른", "슬라임",8,1+att,1+def,0.2);
                 putStuffAt(a,room.getX(),room.getY());
             } else if (rand < 0.05) {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable("맷집좋은", "슬라임",16,1+att,1+def,0.6);
+                Stuff a = new StuffCreatureMovable("맷집좋은", "슬라임",16,1+att,1+def,0.1);
                 putStuffAt(a,room.getX(),room.getY());
             } else if (rand < 0.075) {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable("산성", "슬라임",8,3+att,def,0.6);
+                Stuff a = new StuffCreatureMovable("산성", "슬라임",8,3+att,def,0.1);
                 putStuffAt(a,room.getX(),room.getY());
             } else if (rand < 0.15) {
                 Room room =iter.getRandom();
@@ -151,20 +151,20 @@ public class Map {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable(null, "늑대",12,3+att,1+def,1);
+                Stuff a = new StuffCreatureMovable(null, "늑대",12,3+att,1+def,0.3);
                 putStuffAt(a,room.getX(),room.getY());
             }
         } else if (ManagerGame.getInstance().getTurn() <= 360) {
             if (rand < 0.05) {
                 Room room =iter.getRandom();
                 int att = random.nextInt(8); // slime att
-                Stuff a = new StuffCreatureMovable(null, "원혼",1,2+att,0, 2,0.25);
+                Stuff a = new StuffCreatureMovable(null, "원혼",1,2+att,0, 2,0.5);
                 putStuffAt(a,room.getX(),room.getY());
             } else if (rand < 0.1) {
                 Room room =iter.getRandom();
                 int att = random.nextInt(2); // slime att
                 int def = random.nextInt(2); // slime def
-                Stuff a = new StuffCreatureMovable("우두머리", "늑대",24,4+att,2+def, 2,1);
+                Stuff a = new StuffCreatureMovable("우두머리", "늑대",24,4+att,2+def, 2, 0.25);
                 putStuffAt(a,room.getX(),room.getY());
             } else if (rand < 0.15) {
                 Room room =iter.getRandom();
