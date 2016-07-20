@@ -5,17 +5,21 @@ import java.util.Random;
 /**
  * Created by q on 2016-07-20.
  */
-public class StuffCreatureWolf extends StuffCreatureMob {
-    public StuffCreatureWolf(double health, double attack, double armor) {
-        super(health, attack, armor, null);
-        this.name = "웨어울프";
+public class StuffCreatureFixed extends StuffCreatureMob {
+    public StuffCreatureFixed(String prefix, String name, double health, double attack, int fortune, double armor) {
+        super(health, attack, armor, fortune, name, prefix);
+    }
+
+    public StuffCreatureFixed(String prefix, String name, double health, double attack, double armor) {
+        super(health, attack, armor, name, prefix);
     }
 
     @Override
     public void onUpdate() {
         // moving part
         Random random = new Random();
-        double prob = 0.04;
+
+        double prob = 0.00;
 
         if (random.nextDouble() < prob) {
             int cnt = 0;
@@ -37,7 +41,7 @@ public class StuffCreatureWolf extends StuffCreatureMob {
         Room i = room.getRoom();
         for (Object things : i.getStuffs()) {
             if (things instanceof StuffCreaturePlayer) {
-                this.attack(((StuffCreaturePlayer) things));
+                this.attack( ((StuffCreaturePlayer) things));
             }
         }
     }

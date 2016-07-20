@@ -8,9 +8,8 @@ import java.util.Random;
 public class StuffCreature extends Stuff {
 
 
-    private double health;
-    Random random = new Random();
-
+    protected double health;
+    protected Random random = new Random();
 
     public StuffCreature(double health) {
         this.health = health;
@@ -33,12 +32,15 @@ public class StuffCreature extends Stuff {
     public void moveTo(Map.Direction dir) {
 
     }
+
     public void attack(StuffCreature target) {
-        double DMGDealt = (this.getAttack()/Math.sqrt(target.getArmor()+1));
-        target.health -= DMGDealt;
-        ManagerLogger.getInstance().log(this.toString()+"(이)가 " + target.toString() + " 에게 "+((int)(10*DMGDealt))/10.0+"의 피해를 입혔습니다.");
-        if (target.health <= 0) target.onDeath();
-        if (this.health <= 0) this.onDeath();
+        if (!target.isDead()) {
+            double damage = (this.getAttack()/Math.sqrt(target.getArmor()+1));
+            target.health -= damage;
+            ManagerLogger.getInstance().log(this.toString()+"(이)가 " + target.toString() + " 에게 "+((int)(10*damage))/10.0+"의 피해를 입혔습니다.");
+            if (target.health <= 0) target.onDeath();
+            if (this.health <= 0) this.onDeath();
+        }
     }
 
 }

@@ -16,6 +16,7 @@ public class ManagerGame {
     private Map map;
     private MapView mapView;
     private StuffCreaturePlayer player;
+    private int turn;
 
     private ArrayAdapter<String> adapter;
 
@@ -46,6 +47,11 @@ public class ManagerGame {
         ManagerPosition.getInstance().onUpdate();
         map.onUpdate();
         mapView.onUpdate();
+        turn++;
+    }
+
+    public int getTurn() {
+        return turn;
     }
 
     private class TimerTask extends AsyncTask<Void, Void, Void> {

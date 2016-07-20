@@ -7,17 +7,27 @@ import java.util.Random;
  */
 public class StuffCreatureMob extends StuffCreature {
 
-    public String name;
-    public double attack;
-    public double armor;
-    private Random random;
+    private String name;
+    private String prefix;
+    private double attack;
+    private double armor;
+    private int fortune;
 
-    public StuffCreatureMob(double health, double attack, double armor, String name) {
+    public StuffCreatureMob(double health, double attack, double armor, String name, String prefix) {
         super(health);
         this.attack = attack;
         this.armor = armor;
         this.name = name;
-        this.random = new Random();
+        this.prefix = prefix;
+    }
+
+    public StuffCreatureMob(double health, double attack, double armor, int fortune,String name, String prefix) {
+        super(health);
+        this.attack = attack;
+        this.armor = armor;
+        this.name = name;
+        this.prefix = prefix;
+        this.fortune = fortune;
     }
 
     @Override
@@ -32,20 +42,21 @@ public class StuffCreatureMob extends StuffCreature {
     @Override
     protected void onDeath() {
         ManagerLogger.getInstance().log(toString()+"이(가) 죽었습니다.");
-        if (random.nextInt(5) < getAttack()+getArmor() ) {
-            if (random.nextInt(2) < getAttack()) {
-                StuffItem droppeditem = new StuffItemArmor(random.nextInt(10));
-                getRoom().putStuff(droppeditem);
-                ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
+        for (int i = 0 ; i < fortune; i ++) {
+            if (random.nextInt(5) == 0) {
+                if (random.nextInt(2) == 0) {
+                    StuffItem droppeditem = new StuffItemArmor(random.nextInt((int) Math.max(10, attack + 2)));
+                    getRoom().putStuff(droppeditem);
+                    ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
+                }
+                if (random.nextInt(2) == 0) {
+                    StuffItem droppeditem = new StuffItemWeapon(random.nextInt((int) Math.max(10, armor + 2)));
+                    getRoom().putStuff(droppeditem);
+                    ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
+                }
             }
-            if (random.nextInt(2) < getArmor()) {
-                StuffItem droppeditem = new StuffItemWeapon(random.nextInt(10));
-                getRoom().putStuff(droppeditem);
-                ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
-            }
-         }
+        }
         getRoom().remove(this);
-
     }
 
     protected void move(Map.Direction dir) {
@@ -62,8 +73,7 @@ public class StuffCreatureMob extends StuffCreature {
     }
 
     public String toString() {
-        String prefix1 = null;
-        String prefix2 = null;
+        /*
         switch ((int) this.attack) { // TODO : fix this if needed
             case 0 : prefix1 = "무해하고"; break;
             case 1 : prefix1 = "연약하고"; break;
@@ -88,8 +98,12 @@ public class StuffCreatureMob extends StuffCreature {
             case 8 : prefix2 = "바위같은"; break;
             case 9 : prefix2 = "부서지지않는"; break;
         }
+        */
 
-        return prefix1+" "+prefix2+" "+name;
+        if (prefix != null)
+             return prefix+" "+name + " [" + attack +", " + armor + "]";
+        else
+            return name + " [" + attack +", " + armor + "]";
     }
 
 

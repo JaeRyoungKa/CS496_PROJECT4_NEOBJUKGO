@@ -97,5 +97,6 @@ public class StuffCreaturePlayer extends StuffCreature {
                 break;
             }
         }
+        health+=1;
     }
 }

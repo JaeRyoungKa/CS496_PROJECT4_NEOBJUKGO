@@ -5,19 +5,24 @@ import java.util.Random;
 /**
  * Created by q on 2016-07-20.
  */
-public class StuffCreatureSlime extends StuffCreatureMob {
-    public StuffCreatureSlime(double health, double attack, double armor) {
-        super(health, attack, armor, null);
-        this.name = "슬라임";
+public class StuffCreatureMovable extends StuffCreatureMob {
+
+    private double move;
+
+    public StuffCreatureMovable(String prefix, String name, double health, double attack, double armor, int fortune, double move) {
+        super(health, attack, armor, fortune, name, prefix);
+        this.move = move;
+    }
+
+    public StuffCreatureMovable(String prefix, String name, double health, double attack, double armor, double move) {
+        super(health, attack, armor, name, prefix);
+        this.move = move;
     }
 
     @Override
     public void onUpdate() {
         // moving part
-        Random random = new Random();
-        double prob = 0.08;
-
-        if (random.nextDouble() < prob) {
+        if (random.nextDouble() < move) {
             int cnt = 0;
             for (Map.Direction i : Map.Direction.values()) {
                 Room iRoom = getRoom().getRoom(i);
