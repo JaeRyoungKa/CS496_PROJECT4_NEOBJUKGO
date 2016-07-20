@@ -1,9 +1,13 @@
 package com.example.q.neobjukgo;
 
+import java.util.Iterator;
+
 /**
  * Created by q on 2016-07-20.
  */
 public class Map {
+
+
 
     public enum Direction {
         UP(0, -1), DOWN(0, 1), RIGHT(1, 0), LEFT(-1, 0);
@@ -31,8 +35,47 @@ public class Map {
         initializeMap();
     }
 
+    public void putStuffAt(Stuff s, int x, int y) {
+        rooms[y][x].add(s);
+        s.setRoom(rooms[y][x]);
+    }
+
+    public void moveStuffTo(Stuff s, int x, int y) {
+        s.getRoom().remove(s);
+        rooms[y][x].add(s);
+        s.setRoom(rooms[y][x]);
+    }
+
     private void initializeMap() {
         rooms = new Room[10][4];
+        rooms[0][0] = new Room(0,0,this);
+        rooms[0][1] = new Room(1,0,this);
+        rooms[0][2] = new Room(2,0,this);
+        rooms[0][3] = new Room(3,0,this);
+        rooms[1][0] = new Room(0,1,this);
+        rooms[1][3] = new Room(3,1,this);
+        rooms[2][0] = new Room(0,2,this);
+        rooms[2][3] = new Room(3,2,this);
+        rooms[3][0] = new Room(0,3,this);
+        rooms[3][1] = new Room(1,3,this);
+        rooms[3][2] = new Room(2,3,this);
+        rooms[3][3] = new Room(3,3,this);
+        rooms[4][0] = new Room(0,4,this);
+        rooms[4][3] = new Room(3,4,this);
+        rooms[5][0] = new Room(0,5,this);
+        rooms[5][3] = new Room(3,5,this);
+        rooms[6][0] = new Room(0,6,this);
+        rooms[6][1] = new Room(1,6,this);
+        rooms[6][2] = new Room(2,6,this);
+        rooms[6][3] = new Room(3,6,this);
+        rooms[7][0] = new Room(0,7,this);
+        rooms[7][3] = new Room(3,7,this);
+        rooms[8][0] = new Room(0,8,this);
+        rooms[8][3] = new Room(3,8,this);
+        rooms[9][0] = new Room(0,9,this);
+        rooms[9][1] = new Room(1,9,this);
+        rooms[9][2] = new Room(2,9,this);
+        rooms[9][3] = new Room(3,9,this);
     }
 
     public Room getRoomAt(int x, int y) {
@@ -42,6 +85,46 @@ public class Map {
             }
         }
         return null;
+    }
+
+    public  void onUpdate(){
+        Iterator<Room> iter = getIterator();
+
+        while (iter.hasNext()) {
+            Room i = iter.next();
+            i.onUpdate();
+        }
+    }
+
+    public Iterator<Room> getIterator() {
+        return new RoomIterator();
+    }
+
+    private class RoomIterator implements Iterator<Room> {
+
+        int next;
+        Room[] arr;
+
+        public RoomIterator() {
+            arr = new Room[28];
+            int temp = 0;
+            for (int i = 0 ; i < rooms.length; i++) {
+                for (int j = 0 ; j < rooms[0].length; j++) {
+                    if (rooms[i][j] != null)
+                        arr[temp++] = rooms[i][j];
+                }
+            }
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next<arr.length;
+        }
+
+        @Override
+        public Room next() {
+            return arr[next++];
+        }
     }
 
 }

@@ -10,15 +10,10 @@ public class StuffCreature extends Stuff {
     private double attack;
     private double armor;
 
-    public StuffCreature(Room room, double health, double attack, double armor) {
-        super(room);
+    public StuffCreature(double health, double attack, double armor) {
         this.health = health;
         this.attack = attack;
         this.armor = armor;
-    }
-
-    public void moveTo(int x, int y) {
-
     }
 
     public void moveTo(Map.Direction dir) {

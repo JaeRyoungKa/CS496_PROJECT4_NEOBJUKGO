@@ -5,15 +5,14 @@ package com.example.q.neobjukgo;
  */
 public class StuffCreatureSlime extends StuffCreature {
 
-    public StuffCreatureSlime(Room room, double health, double attack, double armor) {
-        super(room, health, attack, armor);
+    public StuffCreatureSlime(double health, double attack, double armor) {
+        super(health, attack, armor);
     }
 
     @Override
-    public void onTime() {
+    public void onUpdate() {
         for (Map.Direction dir : Map.Direction.values()) {
             Room i = room.getRoom(dir);
-
         }
     }
 

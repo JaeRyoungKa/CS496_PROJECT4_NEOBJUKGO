@@ -5,8 +5,8 @@ package com.example.q.neobjukgo;
  */
 public class StuffCreaturePlayer extends StuffCreature {
 
-    public StuffCreaturePlayer (Room room, double health, double attack, double armor, String name) {
-        super(room,health,attack,armor);
+    public StuffCreaturePlayer (double health, double attack, double armor) {
+        super(health,attack,armor);
     }
 
 }

@@ -6,8 +6,8 @@ package com.example.q.neobjukgo;
 public class StuffCreatureMob extends StuffCreature {
 
     private String name;
-    public StuffCreatureMob(Room room, double health, double attack, double armor, String name) {
-        super(room,health,attack,armor);
+    public StuffCreatureMob(double health, double attack, double armor, String name) {
+        super(health,attack,armor);
         this.name = name;
     }
 

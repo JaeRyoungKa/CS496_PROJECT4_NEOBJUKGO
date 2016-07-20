@@ -7,12 +7,19 @@ public class Stuff {
 
     protected Room room;
 
-    public Stuff(Room room) {
+    public Stuff() {
+    }
+
+    public void onUpdate() {
+
+    }
+
+    public void setRoom(Room room) {
         this.room = room;
     }
 
-    public void onTime() {
-
+    public Room getRoom() {
+        return room;
     }
 
 }
