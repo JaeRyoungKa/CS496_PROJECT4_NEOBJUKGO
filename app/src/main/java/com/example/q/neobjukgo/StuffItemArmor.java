@@ -16,6 +16,7 @@ public class StuffItemArmor extends StuffItem {
         this.item_performance = random.nextInt(10);
     }
 
+    @Override
     public String toString() {
         String prefix = "";
         switch (this.item_performance) {
