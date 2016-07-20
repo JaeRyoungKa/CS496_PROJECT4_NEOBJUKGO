@@ -15,6 +15,8 @@ public class StuffCreatureMob extends StuffCreature {
     protected void onDeath() {
         StuffItem droppeditem = new StuffItem();
         getRoom().add(droppeditem);
+        ManagerLogger.getInstance().log(toString()+"이(가) 죽었습니다.");
+        getRoom().remove(this);
     }
 
     protected void move(Map.Direction dir) {
