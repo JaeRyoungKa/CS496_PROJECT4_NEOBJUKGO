@@ -29,4 +29,8 @@ public class StuffCreaturePlayer extends StuffCreature {
         ManagerLogger.getInstance().log("죽어서 인벤토리에 있는 아이템을 모두 잃었습니다.");
     }
 
+    @Override
+    public String toString() {
+        return "플레이어";
+    }
 }

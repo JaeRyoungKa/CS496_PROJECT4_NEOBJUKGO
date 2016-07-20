@@ -47,8 +47,17 @@ public class MapView extends View {
             } else {
                 p.setColor(Color.WHITE);
             }
-            r.offset(-x*LENGTH+getWidth()/2-LENGTH/2,-y*LENGTH+getHeight()/2-LENGTH/2);
+            int offX = -x*LENGTH+getWidth()/2-LENGTH/2;
+            int offY = -y*LENGTH+getHeight()/2-LENGTH/2;
+            r.offset(offX,offY);
             canvas.drawRect(r,p);
+
+            p.setColor(Color.BLACK);
+            for (int j = 0; j < i.getStuffs().size(); j++) {
+                String text = i.getStuffs().get(j).toString();
+                p.setTextSize(30);
+                canvas.drawText(text,0,text.length(),offX+i.getX()*LENGTH,offY+(j+1)*30+i.getY()*LENGTH,p);
+            }
         }
     }
 
