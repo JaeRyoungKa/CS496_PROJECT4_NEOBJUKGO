@@ -11,6 +11,10 @@ public class StuffCreaturePlayer extends StuffCreature {
     protected int weapon_num;
     protected int armor_num;
 
+    public StuffCreaturePlayer (double health, double attack, double armor) {
+        super(health,attack,armor);
+    }
+
     public StuffCreaturePlayer (double health, double attack, double armor, ArrayList<StuffItem> inventory, int weapon_num, int armor_num) {
         super(health,attack,armor);
         this.inventory = inventory;

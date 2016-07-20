@@ -14,10 +14,11 @@ public class StuffCreatureMob extends StuffCreature {
     @Override
     protected void onDead() {
         StuffItem droppeditem = new StuffItem();
-        
+
+        getRoom().add(droppeditem);
     }
 
-    protected void onMove(Map.Direction dir) {
+    protected void move(Map.Direction dir) {
         Room i = room.getRoom(dir);
         boolean flag = false;
         for (Object things : i.getStuffs()) {
@@ -26,7 +27,7 @@ public class StuffCreatureMob extends StuffCreature {
         if (!flag) this.moveTo(dir);
     }
 
-    protected String naming(String monstername) {
+    public String toString() {
         String prefix1 = null;
         String prefix2 = null;
         switch ((int) super.attack/10) { // TODO : fix this if needed
@@ -54,7 +55,7 @@ public class StuffCreatureMob extends StuffCreature {
             case 9 : prefix2 = "매우 강인한"; break;
         }
 
-        return prefix1+" "+prefix2+" "+monstername;
+        return prefix1+" "+prefix2+" "+name;
     }
 
 

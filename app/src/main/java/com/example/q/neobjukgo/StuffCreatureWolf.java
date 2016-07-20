@@ -8,19 +8,30 @@ import java.util.Random;
 public class StuffCreatureWolf extends StuffCreatureMob {
     public StuffCreatureWolf(double health, double attack, double armor) {
         super(health, attack, armor, null);
-        this.name = naming("웨어울프");
+        this.name = "웨어울프";
     }
 
     @Override
     public void onUpdate() {
         // moving part
         Random random = new Random();
-        int value = random.nextInt(10000);
         double prob = 0.04;
-        if (value < 10000 * prob * 0.25) this.onMove(Map.Direction.UP);
-        else if (value < 10000 * prob * 0.50 ) this.onMove(Map.Direction.LEFT);
-        else if (value < 10000 * prob * 0.75 ) this.onMove(Map.Direction.RIGHT);
-        else if (value < 10000 * prob * 1.00 ) this.onMove(Map.Direction.DOWN);
+
+        if (random.nextDouble() < prob) {
+            int cnt = 0;
+            for (Map.Direction i : Map.Direction.values()) {
+                Room iRoom = getRoom().getRoom(i);
+                if (iRoom !=  null)
+                    cnt++;
+            }
+            int value = random.nextInt(cnt);
+            int curIndex = 0;
+            for (Map.Direction i : Map.Direction.values()) {
+                Room iRoom = getRoom().getRoom(i);
+                if (iRoom !=  null && curIndex++==value)
+                    this.move(i);
+            }
+        }
 
         // attacking part
         Room i = room.getRoom();

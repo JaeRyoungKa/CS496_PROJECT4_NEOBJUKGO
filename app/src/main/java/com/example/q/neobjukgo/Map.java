@@ -7,7 +7,7 @@ import java.util.Iterator;
  */
 public class Map {
 
-
+    private boolean flag;
 
     public enum Direction {
         UP(0, -1), DOWN(0, 1), RIGHT(1, 0), LEFT(-1, 0);
@@ -96,6 +96,11 @@ public class Map {
         }
 
         // Mob Generation
+        if (!flag) {
+            flag = true;
+            Stuff a = new StuffCreatureSlime(10,1,1);
+            putStuffAt(a,ManagerGame.getInstance().getPlayer().getRoom().getX(),ManagerGame.getInstance().getPlayer().getRoom().getY());
+        }
     }
 
     public Iterator<Room> getIterator() {
