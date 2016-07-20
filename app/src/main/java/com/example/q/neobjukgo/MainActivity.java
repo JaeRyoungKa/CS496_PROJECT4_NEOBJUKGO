@@ -1,6 +1,8 @@
 package com.example.q.neobjukgo;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +46,11 @@ public class MainActivity extends AppCompatActivity {
         ManagerLogger.getInstance().log("셋");
         ManagerLogger.getInstance().log("넷");
         ManagerLogger.getInstance().log("다섯");
-        ManagerLogger.getInstance().log("다섯");
+        ManagerLogger.getInstance().log("여섯");
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(0xBB000000));
+
          int temp = summon_random();
          ATT = temp/10;
          DEF = 80+temp%10*4;
