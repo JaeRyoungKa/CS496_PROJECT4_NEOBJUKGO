@@ -5,8 +5,8 @@ import java.util.Random;
 /**
  * Created by q on 2016-07-20.
  */
-public class StuffCreatureSlime extends StuffCreatureMob {
-    public StuffCreatureSlime(double health, double attack, double armor) {
+public class StuffCreatureWolf extends StuffCreatureMob {
+    public StuffCreatureWolf(double health, double attack, double armor) {
         super(health, attack, armor, null);
         String prefix1 = null;
         String prefix2 = null;
@@ -34,14 +34,14 @@ public class StuffCreatureSlime extends StuffCreatureMob {
             case 8 : prefix2 = "매우 튼튼한"; break;
             case 9 : prefix2 = "매우 강인한"; break;
         }
-        this.name = prefix1+" "+prefix2+" 슬라임";
+        this.name = prefix1+" "+prefix2+" 웨어울프";
     }
 
     @Override
     public void onUpdate() {
         Random random = new Random();
         int value = random.nextInt(10000);
-        double prob = 0.2;
+        double prob = 0.1;
         if (value < 10000 * prob * 0.25) this.onMove(Map.Direction.UP);
         else if (value < 10000 * prob * 0.50 ) this.onMove(Map.Direction.LEFT);
         else if (value < 10000 * prob * 0.75 ) this.onMove(Map.Direction.RIGHT);
