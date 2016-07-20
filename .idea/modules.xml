@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CS496_PROJECT4_NEOBJUKGO.iml" filepath="$PROJECT_DIR$/CS496_PROJECT4_NEOBJUKGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/NeobJukGo.iml" filepath="$PROJECT_DIR$/NeobJukGo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
