@@ -5,7 +5,11 @@ package com.example.q.neobjukgo;
  */
 public class Stuff {
 
+    protected Room room;
 
+    public Stuff(Room room) {
+        this.room = room;
+    }
 
     public void onTime() {
 

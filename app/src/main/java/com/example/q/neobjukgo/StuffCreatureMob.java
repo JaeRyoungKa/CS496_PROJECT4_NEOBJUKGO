@@ -10,4 +10,6 @@ public class StuffCreatureMob extends StuffCreature {
         super(room,health,attack,armor);
         this.name = name;
     }
+
+
 }

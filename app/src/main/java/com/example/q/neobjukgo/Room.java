@@ -25,4 +25,8 @@ public class Room {
         stuffs.add(s);
     }
 
+    public ArrayList<Stuff> getStuffs() {
+        return stuffs;
+    }
+
 }
