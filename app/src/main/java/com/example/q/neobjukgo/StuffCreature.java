@@ -16,7 +16,7 @@ public class StuffCreature extends Stuff {
         this.armor = armor;
     }
 
-    protected void onDead() {}
+    protected void onDeath() {}
 
     public void moveTo(Map.Direction dir) {
 
@@ -27,8 +27,8 @@ public class StuffCreature extends Stuff {
         this.health -= HPLost;
         target.health -= DMGDealt;
         ManagerLogger.getInstance().log(HPLost+"의 피해를 입고 "+DMGDealt+"의 피해를 입혔습니다.");
-        if (target.health <= 0) target.onDead();
-        if (this.health <= 0) this.onDead();
+        if (target.health <= 0) target.onDeath();
+        if (this.health <= 0) this.onDeath();
     }
 
 }

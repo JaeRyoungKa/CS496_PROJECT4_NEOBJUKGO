@@ -7,12 +7,12 @@ import java.util.Random;
  */
 public class StuffItemArmor extends StuffItem {
 
-    public StuffItemArmor(int number) {
-        super(0,number);
+    public StuffItemArmor(int performance) {
+        super(performance);
     }
 
     public StuffItemArmor() {
-        super (0, 0);
-        this.item_number = random.nextInt(10);
+        super (0);
+        this.item_performance = random.nextInt(10);
     }
 }

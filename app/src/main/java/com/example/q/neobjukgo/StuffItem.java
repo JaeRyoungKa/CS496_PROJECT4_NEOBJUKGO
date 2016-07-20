@@ -7,24 +7,49 @@ import java.util.Random;
  */
 public class StuffItem extends  Stuff {
 
-    private int Category; // 0 : Armor, 1 : weapon
-    public int item_number;
+    public int item_performance;
     Random random = new Random();
+    int category = random.nextInt(2);
 
-    public StuffItem(int Category, int item_number) {
-        this.Category = Category;
-        this.item_number = item_number;
+    public StuffItem(int item_performance) {
+        if (category == 0) {
+            StuffItemArmor item = new StuffItemArmor();
+            item.item_performance = item_performance;
+        }
+        else {
+            StuffItemWeapon item = new StuffItemWeapon();
+            item.item_performance = item_performance;
+        }
     }
-
-
     public StuffItem() {
-        this.Category = random.nextInt(2);
-        this.item_number = random.nextInt(10);
+        if (category == 0) {
+            StuffItemArmor item = new StuffItemArmor();
+            item.item_performance = random.nextInt(10);
+        }
+        else {
+            StuffItemWeapon item = new StuffItemWeapon();
+            item.item_performance = random.nextInt(10);
+        }
     }
 
 
     public String toString() {
-        return "Item Sample 1";
+        String prefix = "";
+        String surfix = "무기";
+        if (this.category == 0) surfix = "방어구";
+        switch (this.item_performance) {
+            case 0 : prefix = "투명"; break;
+            case 1 : prefix = "곧 깨질"; break;
+            case 2 : prefix = "허름한"; break;
+            case 3 : prefix = "부족한"; break;
+            case 4 : prefix = "약한"; break;
+            case 5 : prefix = "평범한"; break;
+            case 6 : prefix = "레어"; break;
+            case 7 : prefix = "에픽"; break;
+            case 8 : prefix = "유니크"; break;
+            case 9 : prefix = "레전드리"; break;
+        }
+        return prefix+" "+surfix;
     }
 
 }

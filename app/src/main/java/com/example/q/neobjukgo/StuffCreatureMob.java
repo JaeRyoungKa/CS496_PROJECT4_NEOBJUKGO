@@ -12,9 +12,8 @@ public class StuffCreatureMob extends StuffCreature {
     }
 
     @Override
-    protected void onDead() {
+    protected void onDeath() {
         StuffItem droppeditem = new StuffItem();
-
         getRoom().add(droppeditem);
     }
 

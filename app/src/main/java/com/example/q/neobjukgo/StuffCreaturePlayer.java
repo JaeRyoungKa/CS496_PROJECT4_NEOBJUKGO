@@ -23,9 +23,8 @@ public class StuffCreaturePlayer extends StuffCreature {
     }
 
     @Override
-    protected void onDead() {
-        ArrayList<StuffItem> inventory = new ArrayList<StuffItem>();
-        this.inventory = inventory;
+    protected void onDeath() {
+        this.inventory = new ArrayList<StuffItem>();
         ManagerLogger.getInstance().log("죽어서 인벤토리에 있는 아이템을 모두 잃었습니다.");
     }
 

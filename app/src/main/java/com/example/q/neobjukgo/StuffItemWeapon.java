@@ -5,12 +5,12 @@ package com.example.q.neobjukgo;
  */
 public class StuffItemWeapon extends StuffItem {
 
-    public StuffItemWeapon(int number) {
-        super(1,number);
+    public StuffItemWeapon(int performance) {
+        super(performance);
     }
 
     public StuffItemWeapon() {
-        super (1, 0);
-        this.item_number = random.nextInt(10);
+        super (0);
+        this.item_performance = random.nextInt(10);
     }
 }
