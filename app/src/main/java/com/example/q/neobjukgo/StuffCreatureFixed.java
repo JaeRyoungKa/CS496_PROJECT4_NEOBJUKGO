@@ -6,7 +6,7 @@ import java.util.Random;
  * Created by q on 2016-07-20.
  */
 public class StuffCreatureFixed extends StuffCreatureMob {
-    public StuffCreatureFixed(String prefix, String name, double health, double attack, int fortune, double armor) {
+    public StuffCreatureFixed(String prefix, String name, double health, double attack, double armor, int fortune) {
         super(health, attack, armor, fortune, name, prefix);
     }
 

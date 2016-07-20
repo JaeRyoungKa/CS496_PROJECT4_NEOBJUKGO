@@ -24,10 +24,16 @@ public class StuffItemWeapon extends StuffItem {
             case 3 : prefix = "불량"; break;
             case 4 : prefix = "약한"; break;
             case 5 : prefix = "평범한"; break;
-            case 6 : prefix = "우수한"; break;
-            case 7 : prefix = "최상품"; break;
-            case 8 : prefix = "장인의"; break;
-            case 9 : prefix = "전설의"; break;
+            case 6 : prefix = "괜찮은"; break;
+            case 7 : prefix = "우수한"; break;
+            case 8 : prefix = "최상급의"; break;
+            case 9 : prefix = "최고의"; break;
+            case 10 : prefix = "장인의"; break;
+            case 11 : prefix = "금세기 최고의"; break;
+            case 12 : prefix = "전설의"; break;
+            case 13 : prefix = "악마가 가진"; break;
+            case 14 : prefix = "신이 가진"; break;
+            default: prefix = "+" + this.item_performance; break;
         }
         return prefix+" "+"무기";
     }
