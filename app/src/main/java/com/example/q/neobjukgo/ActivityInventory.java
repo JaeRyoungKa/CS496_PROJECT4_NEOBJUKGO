@@ -47,5 +47,13 @@ public class ActivityInventory extends AppCompatActivity {
         fieldView.setAdapter(adapterField);
 
         invView.setAdapter(adapterInv);
+        invView.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                StuffItem item = (StuffItem)adapterView.getItemAtPosition(i);
+                adapterInv.add(ManagerGame.getInstance().getPlayer().equipItem(item));
+                adapterInv.remove(item);
+            }
+        });
     }
 }

@@ -1,5 +1,7 @@
 package com.example.q.neobjukgo;
 
+import java.util.Random;
+
 /**
  * Created by q on 2016-07-20.
  */
@@ -8,12 +10,14 @@ public class StuffCreatureMob extends StuffCreature {
     public String name;
     public double attack;
     public double armor;
+    private Random random;
 
     public StuffCreatureMob(double health, double attack, double armor, String name) {
         super(health);
         this.attack = attack;
         this.armor = armor;
         this.name = name;
+        this.random = new Random();
     }
 
     @Override
@@ -28,15 +32,15 @@ public class StuffCreatureMob extends StuffCreature {
     @Override
     protected void onDeath() {
         ManagerLogger.getInstance().log(toString()+"이(가) 죽었습니다.");
-        if (random.nextInt(20) < getAttack()+getArmor() ) {
-            if (random.nextInt(10) < getAttack()) {
+        if (random.nextInt(5) < getAttack()+getArmor() ) {
+            if (random.nextInt(2) < getAttack()) {
                 StuffItem droppeditem = new StuffItemArmor(random.nextInt(10));
-                getRoom().add(droppeditem);
+                getRoom().putStuff(droppeditem);
                 ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
             }
-            if (random.nextInt(10) < getArmor()) {
+            if (random.nextInt(2) < getArmor()) {
                 StuffItem droppeditem = new StuffItemWeapon(random.nextInt(10));
-                getRoom().add(droppeditem);
+                getRoom().putStuff(droppeditem);
                 ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
             }
          }

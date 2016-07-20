@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class StuffCreaturePlayer extends StuffCreature {
 
     protected ArrayList<StuffItem> inventory;
-    protected StuffItemWeapon weapon = new StuffItemWeapon(1);
-    protected StuffItemArmor armor = new StuffItemArmor(1);
+    protected StuffItemWeapon weapon = new StuffItemWeapon(2);
+    protected StuffItemArmor armor = new StuffItemArmor(2);
 
     public StuffCreaturePlayer (double health) {
         super(health);
@@ -18,17 +18,46 @@ public class StuffCreaturePlayer extends StuffCreature {
 
     @Override
     public double getAttack() {
+        if (weapon==null) return 0;
         return weapon.item_performance;
     }
     @Override
     public double getArmor() {
+        if (armor==null) return 0;
         return armor.item_performance;
+    }
+
+    public StuffItem equipItem(StuffItem item) {
+        if (item instanceof  StuffItemWeapon)
+            return equipItem((StuffItemWeapon)item);
+        if (item instanceof  StuffItemArmor)
+            return equipItem((StuffItemArmor)item);
+        return null;
+    }
+
+    public StuffItem equipItem(StuffItemWeapon item) {
+        StuffItem temp = weapon;
+        weapon=item;
+        inventory.add(temp);
+        return temp;
+    }
+
+    public StuffItem equipItem(StuffItemArmor item) {
+        StuffItem temp = armor;
+        armor=item;
+        inventory.add(temp);
+        return temp;
     }
 
     @Override
     protected void onDeath() {
-        this.inventory = new ArrayList<StuffItem>();
-        ManagerLogger.getInstance().log("죽어서 인벤토리에 있는 아이템을 모두 잃었습니다.");
+        if (weapon != null)
+           dropItem(weapon);
+        if (armor != null)
+            dropItem(armor);
+        weapon = null;
+        armor = null;
+        ManagerLogger.getInstance().log("죽어서 장비하고 있는 아이템을 잃었습니다.");
         getRoom().remove(this);
     }
 
@@ -59,4 +88,14 @@ public class StuffCreaturePlayer extends StuffCreature {
         return inventory;
     }
 
+    @Override
+    public void onUpdate() {
+        Room i = room.getRoom();
+        for (Object things : i.getStuffs()) {
+            if (things instanceof StuffCreatureMob) {
+                this.attack((StuffCreatureMob) things);
+                break;
+            }
+        }
+    }
 }

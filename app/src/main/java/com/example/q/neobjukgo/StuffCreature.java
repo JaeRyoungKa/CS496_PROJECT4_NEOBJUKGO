@@ -26,18 +26,17 @@ public class StuffCreature extends Stuff {
 
     protected void onDeath() {}
 
+    public boolean isDead() {
+        return health<=0;
+    }
+
     public void moveTo(Map.Direction dir) {
 
     }
     public void attack(StuffCreature target) {
-        double HPLost = (int) (target.getAttack()/5 -this.getArmor()/2);
-        double DMGDealt = (int) (1+(this.getAttack()/2 - (target.getArmor()/2)));
-        if (HPLost < 0 ) HPLost = 0;
-        if (DMGDealt <= 0) DMGDealt = 0.5;
-        this.health -= HPLost;
+        double DMGDealt = (this.getAttack()/Math.sqrt(target.getArmor()+1));
         target.health -= DMGDealt;
-        ManagerLogger.getInstance().log(target.toString()+"(으)로부터 "+HPLost+"의 피해를 입었습니다.");
-        ManagerLogger.getInstance().log(target.toString()+"에게 "+DMGDealt+"의 피해를 입혔습니다.");
+        ManagerLogger.getInstance().log(this.toString()+"(이)가 " + target.toString() + " 에게 "+((int)(10*DMGDealt))/10.0+"의 피해를 입혔습니다.");
         if (target.health <= 0) target.onDeath();
         if (this.health <= 0) this.onDeath();
     }

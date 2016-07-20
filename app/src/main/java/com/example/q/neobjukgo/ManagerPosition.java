@@ -40,7 +40,8 @@ public class ManagerPosition {
         int X = pos%10;
         int Y = pos/10;
         if (Y>3) Y--;
-        map.moveStuffTo(ManagerGame.getInstance().getPlayer(),X,Y);
+        if (!ManagerGame.getInstance().getPlayer().isDead())
+           map.moveStuffTo(ManagerGame.getInstance().getPlayer(),X,Y);
     }
 
     public void registerMap(Map map) {

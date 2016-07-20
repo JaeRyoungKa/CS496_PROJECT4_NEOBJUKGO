@@ -95,6 +95,15 @@ public class Map {
             i.onUpdate();
         }
 
+        if (Math.random()<0.1) {
+            int x = ManagerGame.getInstance().getPlayer().getRoom().getX();
+            int y = ManagerGame.getInstance().getPlayer().getRoom().getY();
+            int att = random.nextInt(7); // slime att
+            int def = random.nextInt(6); // slime def
+            Stuff a = new StuffCreatureSlime(10,att,def);
+            if (rooms[y][x] != null) putStuffAt(a,x,y);
+        }
+
         // Mob Generation
         if (!flag) {
             flag = true;

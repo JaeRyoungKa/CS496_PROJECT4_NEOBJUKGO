@@ -37,7 +37,7 @@ public class StuffCreatureSlime extends StuffCreatureMob {
         Room i = room.getRoom();
         for (Object things : i.getStuffs()) {
             if (things instanceof StuffCreaturePlayer) {
-                ((StuffCreaturePlayer) things).attack(this);
+                this.attack(((StuffCreaturePlayer) things));
             }
         }
     }
