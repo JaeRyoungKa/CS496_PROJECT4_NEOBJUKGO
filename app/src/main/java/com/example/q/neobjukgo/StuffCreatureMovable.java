@@ -10,6 +10,7 @@ import java.util.Random;
 public class StuffCreatureMovable extends StuffCreatureMob {
 
     private double move;
+    private double movementPoint;
 
     public StuffCreatureMovable(String prefix, String name, double health, double attack, double armor, int fortune, double move) {
         super(health, attack, armor, fortune, name, prefix);
@@ -24,7 +25,11 @@ public class StuffCreatureMovable extends StuffCreatureMob {
     @Override
     public void onUpdate() {
         // moving part
-        if (random.nextDouble() < move) {
+
+        movementPoint += move;
+
+        if (movementPoint >= 1) {
+            movementPoint -= 1;
             int cnt = 0;
             for (Map.Direction i : Map.Direction.values()) {
                 Room iRoom = getRoom().getRoom(i);

@@ -126,7 +126,7 @@ public class StuffCreaturePlayer extends StuffCreature {
                 break;
             }
         }
-        heal(getMaxHealth()/300.0);
+        heal(getMaxHealth()/400.0);
     }
 
     public void heal(double amount) {
@@ -158,7 +158,7 @@ public class StuffCreaturePlayer extends StuffCreature {
     }
 
     public double getExpGoal() {
-        return (level+2)*50;
+        return (level+1)*75;
     }
 
 }
