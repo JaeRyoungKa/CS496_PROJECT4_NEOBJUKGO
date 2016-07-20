@@ -94,6 +94,8 @@ public class Map {
             Room i = iter.next();
             i.onUpdate();
         }
+
+        // Mob Generation
     }
 
     public Iterator<Room> getIterator() {
