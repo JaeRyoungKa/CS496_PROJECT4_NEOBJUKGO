@@ -98,8 +98,8 @@ public class Map {
         // Mob Generation
         if (!flag) {
             flag = true;
-            Stuff a = new StuffCreatureSlime(10,1,1);
-            putStuffAt(a,ManagerGame.getInstance().getPlayer().getRoom().getX(),ManagerGame.getInstance().getPlayer().getRoom().getY());
+            Stuff a = new StuffCreatureSlime(10,1,0);
+            putStuffAt(a,0,7);
         }
     }
 
