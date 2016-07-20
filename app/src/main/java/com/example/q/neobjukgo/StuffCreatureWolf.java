@@ -37,7 +37,7 @@ public class StuffCreatureWolf extends StuffCreatureMob {
         Room i = room.getRoom();
         for (Object things : i.getStuffs()) {
             if (things instanceof StuffCreaturePlayer) {
-                this.attack((StuffCreaturePlayer) things);
+                ((StuffCreaturePlayer) things).attack(this);
             }
         }
     }

@@ -27,12 +27,21 @@ public class StuffCreatureMob extends StuffCreature {
 
     @Override
     protected void onDeath() {
-        StuffItemWeapon drop = new StuffItemWeapon();
-
-        getRoom().putStuff(drop);
         ManagerLogger.getInstance().log(toString()+"이(가) 죽었습니다.");
-        ManagerLogger.getInstance().log(drop.toString()+"이(가) 드롭되었습니다.");
+        if (random.nextInt(20) < getAttack()+getArmor() ) {
+            if (random.nextInt(10) < getAttack()) {
+                StuffItem droppeditem = new StuffItemArmor(random.nextInt(10));
+                getRoom().add(droppeditem);
+                ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
+            }
+            if (random.nextInt(10) < getArmor()) {
+                StuffItem droppeditem = new StuffItemWeapon(random.nextInt(10));
+                getRoom().add(droppeditem);
+                ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
+            }
+         }
         getRoom().remove(this);
+
     }
 
     protected void move(Map.Direction dir) {

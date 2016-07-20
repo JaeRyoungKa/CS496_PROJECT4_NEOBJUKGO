@@ -1,5 +1,7 @@
 package com.example.q.neobjukgo;
 
+import java.util.Random;
+
 /**
  * Created by q on 2016-07-20.
  */
@@ -7,6 +9,7 @@ public class StuffCreature extends Stuff {
 
 
     private double health;
+    Random random = new Random();
 
 
     public StuffCreature(double health) {
@@ -27,8 +30,10 @@ public class StuffCreature extends Stuff {
 
     }
     public void attack(StuffCreature target) {
-        double HPLost = (target.getAttack() - this.getArmor());
-        double DMGDealt = (this.getAttack() - target.getArmor());
+        double HPLost = (target.getAttack()/1.5 - this.getArmor()/2);
+        double DMGDealt = (this.getAttack()/1.5 - target.getArmor()/2);
+        if (HPLost < 0 ) HPLost = 0;
+        if (DMGDealt < 0) DMGDealt = 0;
         this.health -= HPLost;
         target.health -= DMGDealt;
         ManagerLogger.getInstance().log(target.toString()+"(으)로부터 "+HPLost+"의 피해를 입었습니다.");

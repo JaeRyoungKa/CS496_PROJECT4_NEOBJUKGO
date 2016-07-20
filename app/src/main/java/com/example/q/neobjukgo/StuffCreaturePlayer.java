@@ -7,15 +7,13 @@ import java.util.ArrayList;
  */
 public class StuffCreaturePlayer extends StuffCreature {
 
-    private ArrayList<StuffItem> inventory;
-    private StuffItemWeapon weapon;
-    private StuffItemArmor armor;
+    protected ArrayList<StuffItem> inventory;
+    protected StuffItemWeapon weapon = new StuffItemWeapon(1);
+    protected StuffItemArmor armor = new StuffItemArmor(1);
 
     public StuffCreaturePlayer (double health) {
         super(health);
         this.inventory = new ArrayList<>();
-        this.weapon = new StuffItemWeapon(1);
-        this.armor = new StuffItemArmor(1);
     }
 
     @Override
