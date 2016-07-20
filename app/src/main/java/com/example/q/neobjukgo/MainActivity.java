@@ -49,13 +49,6 @@ public class MainActivity extends AppCompatActivity {
         // ListView에 어댑터 연결
         m_ListView.setAdapter(m_Adapter);
 
-        ManagerLogger.getInstance().log("하나");
-        ManagerLogger.getInstance().log("둘");
-        ManagerLogger.getInstance().log("셋");
-        ManagerLogger.getInstance().log("넷");
-        ManagerLogger.getInstance().log("다섯");
-        ManagerLogger.getInstance().log("여섯");
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(0xBB000000));
 

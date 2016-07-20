@@ -19,9 +19,12 @@ public class StuffCreature extends Stuff {
     public void moveTo(Map.Direction dir) {
 
     }
-
     public void attack(StuffCreature target) {
-
+        double HPLost = (target.attack - this.armor);
+        double DMGDealt = (this.attack - target.armor);
+        this.health -= HPLost;
+        target.health -= DMGDealt;
+        ManagerLogger.getInstance().log(HPLost+"의 피해를 입고 "+DMGDealt+"의 피해를 입혔습니다.");
     }
 
 }

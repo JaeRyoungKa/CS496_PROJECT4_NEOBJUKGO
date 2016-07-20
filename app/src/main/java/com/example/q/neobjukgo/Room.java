@@ -26,6 +26,10 @@ public class Room {
         return map.getRoomAt(x+dir.getX(), y+dir.getY());
     }
 
+    public Room getRoom() {
+        return map.getRoomAt(x,y);
+    }
+
     public void remove(Stuff s) {
         stuffs.remove(s);
     }
