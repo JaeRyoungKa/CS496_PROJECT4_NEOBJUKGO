@@ -16,9 +16,15 @@ public class StuffItem extends  Stuff {
         this.item_number = item_number;
     }
 
+
     public StuffItem() {
         this.Category = random.nextInt(2);
         this.item_number = random.nextInt(10);
+    }
+
+
+    public String toString() {
+        return "Item Sample 1";
     }
 
 }

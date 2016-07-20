@@ -52,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(0xBB000000));
 
+        ((Button)findViewById(R.id.button_I)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, ActivityInventory.class);
+                startActivity(i);
+            }
+        });
+
         ManagerPosition.getInstance().registerWIFI(initializeWIFI());
     }
 
