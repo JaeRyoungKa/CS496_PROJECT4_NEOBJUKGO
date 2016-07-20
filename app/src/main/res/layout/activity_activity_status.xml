@@ -1,7 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000">
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="체력  :  "
+        android:id="@+id/des_HP"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00 / 30"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_toRightOf="@id/des_HP"
+        android:layout_marginTop="40dp"
+        android:id="@+id/HP"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="무기  :  "
+        android:id="@+id/des_Weapon"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로딩중"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_toRightOf="@id/des_Weapon"
+        android:layout_marginTop="100dp"
+        android:id="@+id/Weapon"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="방패  :  "
+        android:id="@+id/des_Armor"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="160dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로딩중"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_toRightOf="@id/des_Armor"
+        android:layout_marginTop="160dp"
+        android:id="@+id/Armor"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="스텟  :  "
+        android:id="@+id/des_stat"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="220dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00 / 00"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_toRightOf="@id/des_stat"
+        android:layout_marginTop="220dp"
+        android:id="@+id/stat"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="턴수  :  "
+        android:id="@+id/des_turnnum"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="280dp"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로딩중"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_toRightOf="@id/des_turnnum"
+        android:layout_marginTop="280dp"
+        android:id="@+id/turnnum" />
+</RelativeLayout>

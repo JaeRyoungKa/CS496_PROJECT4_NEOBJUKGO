@@ -1,5 +1,11 @@
 package com.example.q.neobjukgo;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 /**
@@ -25,6 +31,18 @@ public class StuffCreaturePlayer extends StuffCreature {
     public double getArmor() {
         if (armor==null) return 0;
         return armor.item_performance;
+    }
+
+    public StuffItemArmor getItemArmor() {
+        return armor;
+    }
+
+    public StuffItemWeapon getItemWeapon() {
+        return weapon;
+    }
+
+    public double getHP() {
+        return health;
     }
 
     public StuffItem equipItem(StuffItem item) {
@@ -98,5 +116,7 @@ public class StuffCreaturePlayer extends StuffCreature {
             }
         }
         health+=0.1;
+
+
     }
 }

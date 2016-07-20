@@ -16,7 +16,7 @@ public class ManagerGame {
     private Map map;
     private MapView mapView;
     private StuffCreaturePlayer player;
-    private int turn;
+    private int turn = 0;
 
     private ArrayAdapter<String> adapter;
 
