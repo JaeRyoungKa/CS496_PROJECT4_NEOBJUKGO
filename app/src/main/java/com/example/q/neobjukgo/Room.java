@@ -8,6 +8,11 @@ import java.util.ArrayList;
  */
 public class Room {
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
     private ArrayList<Stuff> stuffs;
     private int x;
     private int y;
