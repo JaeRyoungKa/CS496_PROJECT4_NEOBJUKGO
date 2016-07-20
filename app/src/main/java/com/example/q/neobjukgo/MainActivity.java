@@ -25,14 +25,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         int temp = summon_random();
         ATT = temp/10;
         DEF = 80+temp%10*4;
-        findViewById(R.id.fight).setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                if (isClear == false) onFight();
-            }
-        });
 
     }
 
@@ -62,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
             case 8 : def = "매우 튼튼한"; break;
             case 9 : def = "매우 강인한"; break;
         }
-        TextView summon = (TextView) findViewById(R.id.summoned);
-        summon.setText(att+" "+def+" 몬스터가 나타났다!\n공격도 : "+(equip_number/10)+" 체력 : "+(80+equip_number%10*4));
+
         return equip_number;
     }
 
@@ -82,23 +77,16 @@ public class MainActivity extends AppCompatActivity {
         if (DEF <= 0) DEF = 0;
         if (HP <= 0) HP = 0;
         Toast.makeText(this,temp+"의 피해를 입혔다!\n"+temp2+"의 피해를 입었다!",Toast.LENGTH_SHORT).show();
-        TextView summon = (TextView) findViewById(R.id.summoned);
-        summon.setText(att+" "+def+" 몬스터가 나타났다!\n공격도 : "+ATT+" 체력 : "+DEF);
-        TextView HPbar = (TextView) findViewById(R.id.HP);
-        HPbar.setText("남은 체력 : "+HP);
+
         if (DEF <= 0) onClear();
         if (HP <= 0) onDead();
     }
 
     protected void onClear() {
-        TextView loc = (TextView) findViewById(R.id.current_location);
-        loc.setText("STAGE CLEAR!");
         isClear = true;
     }
 
     protected void onDead() {
-        TextView loc = (TextView) findViewById(R.id.current_location);
-        loc.setText("You LOST the battle.");
         isClear = true;
     }
 
