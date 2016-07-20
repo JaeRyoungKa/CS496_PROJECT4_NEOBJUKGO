@@ -11,13 +11,13 @@ public class StuffCreaturePlayer extends StuffCreature {
     private double exp;
 
     protected ArrayList<StuffItem> inventory;
-    protected StuffItemWeapon weapon = new StuffItemWeapon(2);
-    protected StuffItemArmor armor = new StuffItemArmor(2);
+    protected StuffItemWeapon weapon = new StuffItemWeapon(1);
+    protected StuffItemArmor armor = new StuffItemArmor(1);
 
     public StuffCreaturePlayer (double health) {
         super(health);
         this.inventory = new ArrayList<>();
-        this.level = 0;
+        this.level = 1;
         this.exp = 0;
     }
 
@@ -158,7 +158,7 @@ public class StuffCreaturePlayer extends StuffCreature {
     }
 
     public double getExpGoal() {
-        return (level+1)*75;
+        return (level+1)*50;
     }
 
 }

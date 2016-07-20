@@ -26,6 +26,7 @@ public class StuffCreatureMob extends StuffCreature {
 
     public StuffCreatureMob(double health, double attack, double armor, int fortune, String name, String prefix) {
         super(health);
+        this.maxhealth = health;
         this.attack = attack;
         this.armor = armor;
         this.name = name;
@@ -47,19 +48,22 @@ public class StuffCreatureMob extends StuffCreature {
     protected void onDeath() {
         ManagerLogger.getInstance().log(toString() + "이(가) 죽었습니다.");
         for (int i = 0; i < fortune; i++) {
-            if (random.nextInt(4) == 0) {
-                if (random.nextInt(2) == 0) {
-                    StuffItem droppeditem = new StuffItemArmor(1+random.nextInt((int) attack + 2));
+            if (random.nextDouble() < 0.25) {
+                if (random.nextDouble() < 0.5) {
+                    int nextRank = (int) attack - 3 + random.nextInt((int) attack + 5);
+                    nextRank = Math.max(0,nextRank);
+                    StuffItem droppeditem = new StuffItemArmor(nextRank);
                     getRoom().putStuff(droppeditem);
                     ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
-                }
-                if (random.nextInt(2) == 0) {
-                    StuffItem droppeditem = new StuffItemWeapon(1+random.nextInt((int) armor + 2));
+                } else {
+                    int nextRank = (int) armor - 3 + random.nextInt((int) armor + 5);
+                    nextRank = Math.max(0,nextRank);
+                    StuffItem droppeditem = new StuffItemWeapon(nextRank);
                     getRoom().putStuff(droppeditem);
                     ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
                 }
             }
-            if (random.nextInt(5) == 0) {
+            if (random.nextDouble() < 0.20) {
                 StuffItem droppeditem = new StuffItemPotion((int)(random.nextDouble()*8*(attack+armor))+1);
                 getRoom().putStuff(droppeditem);
                 ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
