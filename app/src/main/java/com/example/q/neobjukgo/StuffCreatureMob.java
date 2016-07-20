@@ -12,9 +12,11 @@ public class StuffCreatureMob extends StuffCreature {
     private double attack;
     private double armor;
     private int fortune;
+    private double maxhealth;
 
     public StuffCreatureMob(double health, double attack, double armor, String name, String prefix) {
         super(health);
+        this.maxhealth = health;
         this.attack = attack;
         this.armor = armor;
         this.name = name;
@@ -57,7 +59,7 @@ public class StuffCreatureMob extends StuffCreature {
                     ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
                 }
             }
-            if (random.nextInt(8) == 0) {
+            if (random.nextInt(6) == 0) {
                 StuffItem droppeditem = new StuffItemPotion((int)(random.nextDouble()*30)+1);
                 getRoom().putStuff(droppeditem);
                 ManagerLogger.getInstance().log(droppeditem.toString() + "이(가) 드롭되었습니다.");
@@ -77,5 +79,8 @@ public class StuffCreatureMob extends StuffCreature {
             return name + " [" + attack + ", " + armor + "]";
     }
 
-
+    @Override
+    public double getMaxHealth() {
+        return maxhealth;
+    }
 }

@@ -7,6 +7,9 @@ import java.util.ArrayList;
  */
 public class StuffCreaturePlayer extends StuffCreature {
 
+    private int level;
+    private double exp;
+
     protected ArrayList<StuffItem> inventory;
     protected StuffItemWeapon weapon = new StuffItemWeapon(2);
     protected StuffItemArmor armor = new StuffItemArmor(2);
@@ -14,17 +17,19 @@ public class StuffCreaturePlayer extends StuffCreature {
     public StuffCreaturePlayer (double health) {
         super(health);
         this.inventory = new ArrayList<>();
+        this.level = 0;
+        this.exp = 0;
     }
 
     @Override
     public double getAttack() {
-        if (weapon==null) return 0;
-        return weapon.rank;
+        if (weapon==null) return level;
+        return weapon.rank+level;
     }
     @Override
     public double getArmor() {
-        if (armor==null) return 0;
-        return armor.rank;
+        if (armor==null) return level;
+        return armor.rank+level;
     }
 
     public StuffItemArmor getItemArmor() {
@@ -121,11 +126,39 @@ public class StuffCreaturePlayer extends StuffCreature {
                 break;
             }
         }
-        heal(0.1);
+        heal(getMaxHealth()/300.0);
     }
 
     public void heal(double amount) {
         health+=amount;
-        health = Math.min(30,health);
+        health = Math.min(health,getMaxHealth());
     }
+
+    @Override
+    public double getMaxHealth() {
+        return (level+3)*10.0;
+    }
+
+    @Override
+    protected void onKill(StuffCreature target) {
+        exp+=(target.getAttack()+target.getArmor())*target.getMaxHealth();
+        while (exp > getExpGoal()) {
+            exp -= getExpGoal();
+            level+=1;
+            heal(10);
+        }
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public double getExp() {
+        return exp;
+    }
+
+    public double getExpGoal() {
+        return (level+2)*50;
+    }
+
 }

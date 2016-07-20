@@ -7,8 +7,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="체력  :  "
-        android:id="@+id/des_HP"
+        android:text="레벨  :  "
+        android:id="@+id/des_Level"
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginLeft="50dp"
@@ -17,11 +17,51 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_toRightOf="@id/des_Level"
+        android:layout_marginTop="40dp"
+        android:id="@+id/Level"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="경험  :  "
+        android:id="@+id/des_Exp"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_toRightOf="@id/des_Exp"
+        android:layout_marginTop="100dp"
+        android:id="@+id/Exp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="체력  :  "
+        android:id="@+id/des_HP"
+        android:textSize="30dp"
+        android:textColor="#FFFFFFFF"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="160dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="00 / 30"
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_toRightOf="@id/des_HP"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="160dp"
         android:id="@+id/HP"/>
 
     <TextView
@@ -32,7 +72,7 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="220dp"
          />
 
     <TextView
@@ -42,7 +82,7 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_toRightOf="@id/des_Weapon"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="220dp"
         android:id="@+id/Weapon"/>
 
     <TextView
@@ -53,7 +93,7 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="280dp"
          />
 
     <TextView
@@ -63,7 +103,7 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_toRightOf="@id/des_Armor"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="280dp"
         android:id="@+id/Armor"/>
 
     <TextView
@@ -74,7 +114,7 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="340dp"
          />
 
     <TextView
@@ -84,7 +124,7 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_toRightOf="@id/des_stat"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="340dp"
         android:id="@+id/stat"/>
 
     <TextView
@@ -95,7 +135,7 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="400dp"
          />
 
     <TextView
@@ -105,6 +145,6 @@
         android:textSize="30dp"
         android:textColor="#FFFFFFFF"
         android:layout_toRightOf="@id/des_turnnum"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="400dp"
         android:id="@+id/turnnum" />
 </RelativeLayout>
