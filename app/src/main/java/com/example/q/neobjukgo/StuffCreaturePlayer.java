@@ -11,9 +11,18 @@ public class StuffCreaturePlayer extends StuffCreature {
     protected StuffItemWeapon weapon;
     protected StuffItemArmor armor;
 
-    public StuffCreaturePlayer (double health, double attack, double armor) {
-        super(health,attack,armor);
+    public StuffCreaturePlayer (double health) {
+        super(health);
         this.inventory = new ArrayList<>();
+    }
+
+    @Override
+    public double getAttack() {
+        return weapon.item_performance;
+    }
+    @Override
+    public double getArmor() {
+        return armor.item_performance;
     }
 
     @Override

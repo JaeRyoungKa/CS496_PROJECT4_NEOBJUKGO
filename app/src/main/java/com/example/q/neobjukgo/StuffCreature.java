@@ -7,13 +7,18 @@ public class StuffCreature extends Stuff {
 
 
     private double health;
-    public double attack;
-    public double armor;
 
-    public StuffCreature(double health, double attack, double armor) {
+
+    public StuffCreature(double health) {
         this.health = health;
-        this.attack = attack;
-        this.armor = armor;
+    }
+
+    public double getAttack() {
+        return 0;
+    }
+
+    public double getArmor() {
+        return 0;
     }
 
     protected void onDeath() {}
@@ -22,11 +27,12 @@ public class StuffCreature extends Stuff {
 
     }
     public void attack(StuffCreature target) {
-        double HPLost = (target.attack - this.armor);
-        double DMGDealt = (this.attack - target.armor);
+        double HPLost = (target.getAttack() - this.getArmor());
+        double DMGDealt = (this.getAttack() - target.getArmor());
         this.health -= HPLost;
         target.health -= DMGDealt;
-        ManagerLogger.getInstance().log(HPLost+"의 피해를 입고 "+DMGDealt+"의 피해를 입혔습니다.");
+        ManagerLogger.getInstance().log(target.toString()+"에게"+HPLost+"의 피해를 입었습니다.");
+        ManagerLogger.getInstance().log(target.toString()+"에게"+DMGDealt+"의 피해를 입혔습니다.");
         if (target.health <= 0) target.onDeath();
         if (this.health <= 0) this.onDeath();
     }

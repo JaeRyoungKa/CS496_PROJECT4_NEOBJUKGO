@@ -6,9 +6,23 @@ package com.example.q.neobjukgo;
 public class StuffCreatureMob extends StuffCreature {
 
     public String name;
+    public double attack;
+    public double armor;
+
     public StuffCreatureMob(double health, double attack, double armor, String name) {
-        super(health,attack,armor);
+        super(health);
+        this.attack = attack;
+        this.armor = armor;
         this.name = name;
+    }
+
+    @Override
+    public double getAttack() {
+        return attack;
+    }
+    @Override
+    public double getArmor() {
+        return armor;
     }
 
     @Override
@@ -16,6 +30,7 @@ public class StuffCreatureMob extends StuffCreature {
         StuffItem droppeditem = new StuffItem();
         getRoom().add(droppeditem);
         ManagerLogger.getInstance().log(toString()+"이(가) 죽었습니다.");
+        ManagerLogger.getInstance().log(droppeditem.toString()+"이(가) 드롭되었습니다.");
         getRoom().remove(this);
     }
 
@@ -31,7 +46,7 @@ public class StuffCreatureMob extends StuffCreature {
     public String toString() {
         String prefix1 = null;
         String prefix2 = null;
-        switch ((int) super.attack/10) { // TODO : fix this if needed
+        switch ((int) this.attack/10) { // TODO : fix this if needed
             case 0 : prefix1 = "무해하고"; break;
             case 1 : prefix1 = "연약하고"; break;
             case 2 : prefix1 = "손쉽고"; break;
@@ -43,7 +58,7 @@ public class StuffCreatureMob extends StuffCreature {
             case 8 : prefix1 = "치명적이고"; break;
             case 9 : prefix1 = "막을수없고"; break;
         }
-        switch ((int) super.armor/10) { // TODO : fix this if needed
+        switch ((int) this.armor/10) { // TODO : fix this if needed
             case 0 : prefix2 = "유리같은"; break;
             case 1 : prefix2 = "취약한"; break;
             case 2 : prefix2 = "벌거벗은"; break;
