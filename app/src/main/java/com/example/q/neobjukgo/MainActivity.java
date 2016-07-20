@@ -4,7 +4,9 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +22,30 @@ public class MainActivity extends AppCompatActivity {
     int DEF;
     int HP = 100;
     boolean isClear = false;
+    private ListView m_ListView;
+    private ArrayAdapter<String> m_Adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Android에서 제공하는 string 문자열 하나를 출력 가능한 layout으로 어댑터 생성
+        m_Adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1);
+        // Xml에서 추가한 ListView 연결
+        m_ListView = (ListView) findViewById(R.id.main_listview);
+        // ListView에 어댑터 연결
+        m_ListView.setAdapter(m_Adapter);
+
+        m_Adapter.add("하나");
+        m_Adapter.add("둘");
+        m_Adapter.add("셋");
+        m_Adapter.add("넷");
+        m_Adapter.add("하나");
+        m_Adapter.add("둘");
+        m_Adapter.add("셋");
+        m_Adapter.add("넷");
 
         int temp = summon_random();
         ATT = temp/10;
